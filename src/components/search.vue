@@ -6,7 +6,7 @@
     </view> -->
     <view class="search-container" @click="handleClick">
       <image :src="icon.search" class="search-icon" />
-      <view v-if="!isSearch" class="search-place">请输入手机号查找</view>
+      <view v-if="!isSearch" class="search-place">请输入关键字</view>
       <input
         v-else
         v-model="searchStr"
@@ -190,8 +190,9 @@ wepy.component({
   }
 }
 .search-place {
-  color: #909090;
   line-height: 60rpx;
+
+  color: #909090;
 }
 .search {
   &-container {
@@ -226,6 +227,7 @@ wepy.component({
 
 //   width: 100%;
 // }
+
 </style>
 
 <config>

@@ -22,7 +22,7 @@
     </view>
     <loading v-if="isLoading"></loading>
     <default v-if="!isLoading && !list.length"></default>
-    <van-dialog id="van-dialog" />
+    <!-- <van-dialog id="van-dialog" /> -->
   </view>
 </template>
 
@@ -46,6 +46,18 @@ wepy.page({
       this.fetchList();
     },
     add() {
+      wx.showModal({
+        title: '提示',
+        content: '是否确认添加xxx教练',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定');
+          } else if (res.cancel) {
+            console.log('用户点击取消');
+          }
+        },
+      });
+
       // Dialog.confirm({
       //   message: '是否确认添加xxx教练',
       //   theme: 'round-button',
@@ -174,8 +186,7 @@ wepy.page({
     loading: '~@/components/loading',
     default: '~@/components/default',
     "van-icon": "module:@vant/weapp/dist/icon/index",
-    "van-dialog": "module:@vant/weapp/dist/dialog/index"
+   
   }
 }
 </config>
-

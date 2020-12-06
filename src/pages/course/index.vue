@@ -2,7 +2,7 @@
   <view>
     <view class="header">
       <search @search="search" is-search></search>
-      <view class="title">
+      <!-- <view class="title">
         <van-dropdown-menu active-color="#fe7115" class="title">
           <van-dropdown-item
             :title="text1 || '位置区域'"
@@ -24,7 +24,7 @@
             @change="changeC"
           />
         </van-dropdown-menu>
-      </view>
+      </view> -->
     </view>
     <view class="plate">
       <course-list
@@ -121,7 +121,7 @@ wepy.page({
 
     fetchInfo() {
       this.fetchList();
-      this.getVenueList();
+      // this.getVenueList();
     },
     async fetchList() {
       this.isLoading = true;
@@ -129,7 +129,7 @@ wepy.page({
       let params = {
         current: this.current,
         size: this.size,
-        searchStr: this.searchStr
+        searchStr: this.searchStr,
       };
 
       if (this.area.code) {
@@ -167,32 +167,32 @@ wepy.page({
       }
       // console.log(this.list);
     },
-    async getVenueList() {
-      let params = {};
+    // async getVenueList() {
+    //   let params = {};
 
-      if (this.area.code) {
-        params.province = this.area.code;
-      } else {
-        params = {
-          ...params,
-          ...this.location,
-        };
-      }
+    //   if (this.area.code) {
+    //     params.province = this.area.code;
+    //   } else {
+    //     params = {
+    //       ...params,
+    //       ...this.location,
+    //     };
+    //   }
 
-      const {
-        data: { total, data: list },
-      } = await api.GET_VENUE_LIST(params);
+    //   const {
+    //     data: { total, data: list },
+    //   } = await api.GET_VENUE_LIST(params);
 
-      if (list.length) {
-        let opt = list.map((item) => {
-          return { ...item, text: item.name, value: item.id };
-        });
+    //   if (list.length) {
+    //     let opt = list.map((item) => {
+    //       return { ...item, text: item.name, value: item.id };
+    //     });
 
-        this.option2 = [{ text: '不限', value: null }, ...opt];
-      } else {
-        this.option2 = [{ text: '附近暂无场馆', disabled: true, value: null }];
-      }
-    },
+    //     this.option2 = [{ text: '不限', value: null }, ...opt];
+    //   } else {
+    //     this.option2 = [{ text: '附近暂无场馆', disabled: true, value: null }];
+    //   }
+    // },
   },
   created() {
     // this.list = [];
@@ -219,7 +219,6 @@ page {
   // position: sticky;
   // z-index: 1;
   // top: 100rpx;
-
   height: 70rpx;
 
   border-bottom: 2rpx solid #ededed;
@@ -243,6 +242,7 @@ page {
 .plate {
   padding: 0 30rpx;
 }
+
 </style>
 
 <config>

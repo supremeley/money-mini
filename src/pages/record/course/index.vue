@@ -19,17 +19,15 @@
         <view class="list-item__info">
           <view class="list-item__title">{{ item.name }}</view>
           <view>
-            <view class="list-item__desc">购买日期: {{ item.orderTime }}</view>
-            <view class="list-item__desc"
-              >学员姓名: {{ item.studentName }}</view
-            >
+            <view class="list-item__desc">预约日期: {{ item.orderTime }}</view>
+            <view class="list-item__desc">教练姓名: {{ item.teacher }}</view>
           </view>
           <view class="list-item__loc">
             <image :src="icon.locationGray" class="list-item__loc-icon" />
             <text>{{ item.location }}</text>
           </view>
         </view>
-        <view v-if="type == 'course'" class="list-item__opt">
+        <!-- <view v-if="type == 'course'" class="list-item__opt">
           <view
             class="list-item__opt-btn"
             @click.stop="link('operate/vacation', item.id, item.classId)"
@@ -40,7 +38,7 @@
             @click.stop="link('operate/adjust', item.id, item.classId)"
             >调课</view
           >
-        </view>
+        </view> -->
       </view>
     </view>
     <!-- </van-tab>
@@ -58,8 +56,35 @@ import scroll from '@/mixins/scroll';
 wepy.page({
   mixins: [scroll],
   data: {
-    isLoading: true,
-    list: [],
+    isLoading: false,
+    list: [
+      {
+        classId: 28,
+        coachId: 12,
+        count: null,
+        courseId: 50,
+        createTime: '2020-11-24 14:39:01',
+        creator: 1,
+        delFlag: '0',
+        headimg: '',
+        id: 234,
+        intro: null,
+        label: null,
+        location: '小鹿人篮球学院（张江校区）',
+        name: '9-11小班',
+        operator: 1,
+        orderTime: '2020-11-03 14:38:51',
+        registerTime: null,
+        remark: null,
+        startTime: '2020-10-17 09:50:00',
+        status: '00',
+        studentId: 46,
+        studentName: '盆友123',
+        teacher: '教练123',
+        updateTime: '2020-11-24 14:39:10',
+        weekDay: '6',
+      },
+    ],
     type: 'course',
     titleOption: [
       {
@@ -128,9 +153,9 @@ wepy.page({
     },
   },
   onShow() {
-    this.list = [];
-    this.reset();
-    this.fetchInfo();
+    // this.list = [];
+    // this.reset();
+    // this.fetchInfo();
   },
 });
 </script>
@@ -154,7 +179,8 @@ page {
     &__img {
       width: 180rpx;
       height: 200rpx;
-      // margin-right: 36rpx;
+
+// margin-right: 36rpx;
 
       border-radius: 10rpx;
     }
@@ -171,6 +197,7 @@ page {
       font-size: 26rpx;
       font-weight: 600;
       line-height: 34rpx;
+
       min-height: 68rpx;
     }
     &__desc {
@@ -214,6 +241,7 @@ page {
     }
   }
 }
+
 </style>
 
 <config>

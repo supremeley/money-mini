@@ -31,7 +31,7 @@
     <!-- <view class="btn-container">
       <button open-type="share" class="btn">分享给朋友</button>
     </view> -->
-    <button class="btn" @click="linkTeacher">预约</button>
+    <!-- <button class="btn" @click="linkTeacher">预约</button> -->
   </view>
 </template>
 

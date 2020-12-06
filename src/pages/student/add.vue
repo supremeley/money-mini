@@ -180,7 +180,7 @@ wepy.page({
       '22:00',
     ],
     icon: {
-      registerBg: '/static/images/register_bg.png',
+      registerBg: 'https://xlr.img.vbabc.com/system/cdn/register_bg.png',
     },
     selectOption: [
       {

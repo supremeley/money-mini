@@ -16,7 +16,7 @@
             />
           </view>
         </view>
-        <view class="content-form-item">
+        <!-- <view class="content-form-item">
           <view class="content-form-item__title">年龄</view>
           <view class="content-form-item__content">
             <input
@@ -27,7 +27,7 @@
               class="content-form-item__content-inp"
             />
           </view>
-        </view>
+        </view> -->
         <view class="content-form-item">
           <view class="content-form-item__title">预约日期</view>
           <view
@@ -168,7 +168,7 @@ wepy.page({
       '22:00',
     ],
     icon: {
-      registerBg: '/static/images/register_bg.png',
+      registerBg: 'https://xlr.img.vbabc.com/system/cdn/register_bg.png',
     },
     selectOption: [
       {
@@ -360,7 +360,7 @@ wepy.page({
       let msg;
       if (!this.form.smsCode) msg = '请填写验证码';
       if (!this.form.phone) msg = '请填写手机号';
-      if (!this.form.customerAge) msg = '请填写年龄';
+
       if (!this.form.customerName) msg = '请填写姓名';
 
       if (msg) {

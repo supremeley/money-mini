@@ -40,32 +40,36 @@
     <div v-if="!detail.length" class="default">无预约</div>
     <!-- <button class="btn" @click="linkTeacher">预约</button> -->
 
-    <van-popup
-      position="bottom"
-      :overlay="false"
-      :show="showPopup"
-      @close="closePopup"
-    >
-      <view class="popup">
-        <view v-for="item in detail" :key="item.startTime" class="popup-item">
-          <view class="popup-item__opt">
-            <view class="popup-item__opt-title">预约教练:</view>
-            <view class="popup-item__opt-desc">{{ item.teacher }}</view>
+    <van-popup position="bottom" :show="showPopup" @close="closePopup">
+      <scroll-view class="popup" scroll-y>
+        <view v-for="info in detail" :key="info.startTime">
+          <view class="popup-item__title">
+            {{ info.day }}
           </view>
-          <view class="popup-item__opt">
-            <view class="popup-item__opt-title">预约地点:</view>
-            <view class="popup-item__opt-desc">{{ item.desc }}</view>
-          </view>
-          <view class="popup-item__opt">
-            <view class="popup-item__opt-title">开始时间:</view>
-            <view class="popup-item__opt-desc">{{ item.startTime }}</view>
-          </view>
-          <view class="popup-item__opt">
-            <view class="popup-item__opt-title">结束时间:</view>
-            <view class="popup-item__opt-desc">{{ item.endTime }}</view>
+          <view
+            v-for="item in info.info"
+            :key="item.startTime"
+            class="popup-item"
+          >
+            <view class="popup-item__opt">
+              <view class="popup-item__opt-title">预约教练:</view>
+              <view class="popup-item__opt-desc">{{ item.teacher }}</view>
+            </view>
+            <view class="popup-item__opt">
+              <view class="popup-item__opt-title">预约地点:</view>
+              <view class="popup-item__opt-desc">{{ item.desc }}</view>
+            </view>
+            <view class="popup-item__opt">
+              <view class="popup-item__opt-title">开始时间:</view>
+              <view class="popup-item__opt-desc">{{ item.startTime }}</view>
+            </view>
+            <view class="popup-item__opt">
+              <view class="popup-item__opt-title">结束时间:</view>
+              <view class="popup-item__opt-desc">{{ item.endTime }}</view>
+            </view>
           </view>
         </view>
-      </view>
+      </scroll-view>
     </van-popup>
   </view>
 </template>
@@ -90,10 +94,11 @@ wepy.page({
     detail: [],
     fetchList: [
       {
-        day: '2020-11-17',
+        day: '2020-12-01',
         status: '01',
         info: [
           {
+            day: '2020-12-01',
             startTime: '10:00',
             endTime: '11:00',
             teacher: 'a老师',
@@ -101,6 +106,7 @@ wepy.page({
             desc: 'xx体育馆',
           },
           {
+            day: '2020-12-01',
             startTime: '11:00',
             endTime: '20:00',
             teacher: 'a老师',
@@ -110,11 +116,62 @@ wepy.page({
         ],
       },
       {
-        day: '2020-11-19',
+        day: '2020-12-10',
         status: '01',
         info: [
           {
+            day: '2020-12-10',
             startTime: '10:00',
+            endTime: '11:00',
+            teacher: 'a老师',
+            address: 'xx路xx号',
+            desc: 'xx体育馆',
+          },
+          {
+            day: '2020-12-10',
+            startTime: '11:00',
+            endTime: '20:00',
+            teacher: 'a老师',
+            address: 'xx路xx号',
+            desc: 'xx体育馆',
+          },
+        ],
+      },
+      {
+        day: '2020-12-12',
+        status: '01',
+        info: [
+          {
+            day: '2020-12-12',
+            startTime: '10:00',
+            endTime: '11:00',
+            teacher: 'a老师',
+            address: 'xx路xx号',
+            desc: 'xx体育馆',
+          },
+        ],
+      },
+      {
+        day: '2020-12-19',
+        status: '01',
+        info: [
+          {
+            day: '2020-12-30',
+            startTime: '10:00',
+            endTime: '20:00',
+            teacher: 'a老师',
+            address: 'xx路xx号',
+            desc: 'xx体育馆',
+          },
+        ],
+      },
+      {
+        day: '2020-12-30',
+        status: '01',
+        info: [
+          {
+            day: '2020-12-30',
+            startTime: '11:00',
             endTime: '20:00',
             teacher: 'a老师',
             address: 'xx路xx号',
@@ -274,7 +331,44 @@ wepy.page({
         console.log(item);
         // if (selected) {
         if (item.info) {
-          this.detail = item.info;
+          this.detail = [
+            {
+              day: '2020-12-10',
+              status: '01',
+              info: [
+                {
+                  day: '2020-12-10',
+                  startTime: '10:00',
+                  endTime: '11:00',
+                  teacher: 'a老师',
+                  address: 'xx路xx号',
+                  desc: 'xx体育馆',
+                },
+                {
+                  day: '2020-12-10',
+                  startTime: '11:00',
+                  endTime: '20:00',
+                  teacher: 'a老师',
+                  address: 'xx路xx号',
+                  desc: 'xx体育馆',
+                },
+              ],
+            },
+            {
+              day: '2020-12-12',
+              status: '01',
+              info: [
+                {
+                  day: '2020-12-12',
+                  startTime: '10:00',
+                  endTime: '11:00',
+                  teacher: 'a老师',
+                  address: 'xx路xx号',
+                  desc: 'xx体育馆',
+                },
+              ],
+            },
+          ];
           if (!this.showPopup) this.showPopup = true;
         } else {
           this.showPopup = false;
@@ -423,22 +517,30 @@ page {
   color: #9a9a9a;
 }
 .popup {
+  box-sizing: border-box;
+  height: 600rpx;
   padding: 30rpx;
   &-item {
-    margin-bottom: 20rpx;
     padding: 20rpx;
 
     border-radius: 10rpx;
     box-shadow: 0 5rpx 10rpx rgba(0, 0, 0, .3);
-
+    &:not(:last-child) {
+      margin-bottom: 20rpx;
+    }
+    &__title {
+      font-size: 32rpx;
+      font-weight: 600;
+      line-height: 80rpx;
+    }
     &__opt {
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      height: 60rpx;
+      height: 50rpx;
       &-title {
-        font-size: 30rpx;
+        font-size: 28rpx;
       }
       &-desc {
         font-size: 24rpx;

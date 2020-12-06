@@ -42,8 +42,85 @@ import scroll from '@/mixins/scroll';
 wepy.page({
   mixins: [scroll],
   data: {
-    isLoading: true,
-    list: [],
+    isLoading: false,
+    list: [
+      {
+        classId: 28,
+        classScheduleId: 736,
+        classScheduleName: '课时20201205',
+        classStudentId: 234,
+        coachId: 12,
+        createTime: '2020-12-05 10:00:00',
+        creator: 0,
+        delFlag: '0',
+        id: 458,
+        location: '小鹿人篮球学院（张江校区）',
+        name: '9-11小班',
+        operator: 0,
+        recordTime: '2020-12-05 10:00:00',
+        status: '80',
+        statusText: '已消',
+        studentId: 46,
+        updateTime: null,
+      },
+      {
+        classId: 28,
+        classScheduleId: 736,
+        classScheduleName: '课时20201205',
+        classStudentId: 234,
+        coachId: 12,
+        createTime: '2020-12-05 10:00:00',
+        creator: 0,
+        delFlag: '0',
+        id: 458,
+        location: '小鹿人篮球学院（张江校区）',
+        name: '9-11小班',
+        operator: 0,
+        recordTime: '2020-12-05 10:00:00',
+        status: '80',
+        statusText: '已消',
+        studentId: 46,
+        updateTime: null,
+      },
+      {
+        classId: 28,
+        classScheduleId: 736,
+        classScheduleName: '课时20201205',
+        classStudentId: 234,
+        coachId: 12,
+        createTime: '2020-12-05 10:00:00',
+        creator: 0,
+        delFlag: '0',
+        id: 458,
+        location: '小鹿人篮球学院（张江校区）',
+        name: '9-11小班',
+        operator: 0,
+        recordTime: '2020-12-05 10:00:00',
+        status: '80',
+        statusText: '已消',
+        studentId: 46,
+        updateTime: null,
+      },
+      {
+        classId: 28,
+        classScheduleId: 736,
+        classScheduleName: '课时20201205',
+        classStudentId: 234,
+        coachId: 12,
+        createTime: '2020-12-05 10:00:00',
+        creator: 0,
+        delFlag: '0',
+        id: 458,
+        location: '小鹿人篮球学院（张江校区）',
+        name: '9-11小班',
+        operator: 0,
+        recordTime: '2020-12-05 10:00:00',
+        status: '80',
+        statusText: '已消',
+        studentId: 46,
+        updateTime: null,
+      },
+    ],
     type: 'course',
     titleOption: [
       {
@@ -112,10 +189,10 @@ wepy.page({
     },
   },
   onShow() {
-    this.type = 'course';
-    this.list = [];
-    this.reset();
-    this.fetchInfo();
+    // this.type = 'course';
+    // this.list = [];
+    // this.reset();
+    // this.fetchInfo();
   },
 });
 </script>
@@ -132,11 +209,13 @@ page {
     align-items: center;
     justify-content: space-between;
 
-    // height: 136rpx;
+// height: 136rpx;
+
     padding: 20rpx 24rpx;
 
     border-radius: 10rpx;
-    box-shadow: 0 5rpx 10rpx rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5rpx 10rpx rgba(0, 0, 0, .1);
+
     &:not(:last-child) {
       margin-bottom: 10rpx;
     }
@@ -151,8 +230,9 @@ page {
       background: #fe7115;
     }
     &__desc {
-      flex-shrink: 0;
       font-size: 24rpx;
+
+      flex-shrink: 0;
 
       // color: #9a9a9a;
     }
@@ -187,7 +267,7 @@ page {
           width: 2rpx;
           height: 50rpx;
 
-          content: '';
+          content: "";
           transform: translate(-50%, -50%);
 
           background: #f4f4f4;
@@ -212,6 +292,7 @@ page {
     }
   }
 }
+
 </style>
 
 <config>

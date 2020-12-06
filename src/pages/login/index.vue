@@ -54,7 +54,7 @@ wepy.page({
     mobile: '',
     isAgree: false,
     icon: {
-      loginBg: '/static/images/login_bg.png',
+      loginBg: 'https://xlr.img.vbabc.com/system/cdn/login_bg.png',
     },
   },
   computed: {},
@@ -225,7 +225,7 @@ page {
     width: 12rpx;
     height: 12rpx;
 
-    content: '';
+    content: "";
     transform: translate(-50%, -50%);
 
     border-radius: 50%;
@@ -244,4 +244,5 @@ page {
   width: 750rpx;
   height: 1334rpx;
 }
+
 </style>

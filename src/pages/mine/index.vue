@@ -8,13 +8,13 @@
         class="header-avatar"
         @click="openImage"
       />
-      <image :src="icon.mineBg" class="bg" />
+      <image :src="icon.mineBg" mode="aspectFill" class="bg" />
       <view class="header-content">
-        <view class="header-info">{{ memberInfo.name || '未添加学员' }}</view>
-        <view class="header-btn" @click="linkStudent">学员管理</view>
+        <view class="header-info">{{ memberInfo.name || '未登录' }}</view>
+        <!-- <view class="header-btn" @click="linkStudent">学员管理</view> -->
       </view>
     </view>
-    <view class="option-list">
+    <!-- <view class="option-list">
       <view class="option-list-item" @click="openPopup">
         <image :src="icon.date" class="option-list-item__icon" />
         <view class="option-list-item__title">{{
@@ -36,7 +36,7 @@
         }}</view>
         <view class="option-list-item__text">最近上课</view>
       </view>
-    </view>
+    </view> -->
     <view class="more-list">
       <view
         v-for="item in menu"
@@ -100,24 +100,24 @@ wepy.page({
     menu: [
       {
         icon: '/static/images/mine_study.png',
-        title: '我的课程',
+        title: '我的预约',
         url: '/pages/record/course/index',
       },
       {
         icon: '/static/images/mine_vacation.png',
-        title: '我的请假',
-        url: '/pages/record/vacation/index',
+        title: '我的教练',
+        url: '/pages/teacher/index',
       },
       {
         icon: '/static/images/mine_record.png',
-        title: '上课记录',
+        title: '我的记录',
         url: '/pages/record/index/index',
       },
-      {
-        icon: '/static/images/mine_class.png',
-        title: '我的调课',
-        url: '/pages/record/adjust/index',
-      },
+      // {
+      //   icon: '/static/images/mine_class.png',
+      //   title: '我的调课',
+      //   url: '/pages/record/adjust/index',
+      // },
     ],
     teacherMenu: [
       {
@@ -148,13 +148,13 @@ wepy.page({
   methods: {
     ...mapMutations(['saveStudents', 'setActiveId']),
     link(url) {
-      if (!this.students.length && url == '/pages/record/course/index') {
-        this.toast('需要先报名课程', 'none', 2000, () =>
-          setTimeout(() => this.linkPage(url), 2000)
-        );
-      } else {
-        this.linkPage(url);
-      }
+      // if (!this.students.length && url == '/pages/record/course/index') {
+      //   this.toast('需要先报名课程', 'none', 2000, () =>
+      //     setTimeout(() => this.linkPage(url), 2000)
+      //   );
+      // } else {
+      this.linkPage(url);
+      // }
     },
     linkStudent() {
       if (!this.students.length) {
@@ -248,14 +248,13 @@ wepy.page({
     },
   },
   onShow() {
-    this.isReg = wx.getStorageSync('isReg');
-    this.coach = wx.getStorageSync('coach');
-
-    if (!this.isReg) {
-      this.linkPage('/pages/login/index');
-    } else {
-      this.fetchInfo();
-    }
+    // this.isReg = wx.getStorageSync('isReg');
+    // this.coach = wx.getStorageSync('coach');
+    // if (!this.isReg) {
+    //   this.linkPage('/pages/login/index');
+    // } else {
+    //   this.fetchInfo();
+    // }
   },
 });
 </script>
@@ -269,7 +268,7 @@ wepy.page({
 
   box-sizing: border-box;
   width: 100%;
-  height: 428rpx;
+  height: 300rpx;
   padding: 0 40rpx;
   &-avatar {
     width: 150rpx;
@@ -339,23 +338,31 @@ wepy.page({
   }
 }
 .more-list {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  height: 200rpx;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-evenly;
+  // height: 200rpx;
   margin-top: 20rpx;
+  padding: 20rpx 40rpx;
 
   background: #fff;
   &-item {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 100rpx;
+    margin-bottom: 20rpx;
+
     &__icon {
       width: 80rpx;
       height: 80rpx;
-      margin-bottom: 20rpx;
+      margin-right: 40rpx;
     }
     &__text {
-      font-size: 24rpx;
+      font-size: 28rpx;
+
+      flex: 1;
     }
   }
 }
@@ -394,6 +401,7 @@ wepy.page({
     }
   }
 }
+
 </style>
 
 <config>

@@ -54,6 +54,10 @@ wepy.app({
 {
   pages: [
     'pages/home/index',
+    'pages/book/index',
+    'pages/course/index',
+    'pages/course/detail',
+    'pages/mine/index',
     'pages/teacher/index',
     'pages/teacher/detail',
     'pages/teacher/add',
@@ -65,6 +69,9 @@ wepy.app({
     'pages/login/index',
     'pages/privacy/index',
     'pages/agreement/index',
+    'pages/record/course/index',
+    'pages/record/course/detail',
+    'pages/record/index/index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -83,16 +90,16 @@ wepy.app({
         "text": "首页"
       },
       {
-        "pagePath": "pages/teacher/index",
+        "pagePath": "pages/course/index",
         "iconPath": '/static/images/study.png',
         "selectedIconPath": '/static/images/is_study.png',
-        "text": "教练"
+        "text": "发现"
       },
       {
-        "pagePath": "pages/student/index",
+        "pagePath": "pages/mine/index",
         "iconPath": '/static/images/activity.png',
         "selectedIconPath": '/static/images/is_activity.png',
-        "text": "学员"
+        "text": "我的"
       },
     ]
   },
