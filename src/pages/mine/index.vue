@@ -91,7 +91,7 @@ wepy.page({
     memberInfo: {},
     birthday: '',
     icon: {
-      mineBg: '/static/images/mine_bg.png',
+      mineBg: 'https://xlr.img.vbabc.com/system/cdn/mine_bg.png',
       avatar: '/static/images/avatar.png',
       date: '/static/images/date.png',
       info: '/static/images/info.png',

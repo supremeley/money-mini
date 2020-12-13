@@ -155,9 +155,55 @@ wepy.page({
     type: 'detail',
     id: null,
     // source: 'list',
-    fetchData: {},
+    fetchData: {
+      address: '沪南路2418号2楼2001室（东郊百联旁二楼）',
+      attachs: [],
+      campus: '川沙校区',
+      classTime: '9-11',
+      coachId: 10,
+      createTime: '2020-12-10 11:09:03',
+      creator: 1,
+      delFlag: '0',
+      headImg: '',
+      id: 69,
+      intro: '',
+      labels: '旗舰',
+      latitude: '31.153678696876',
+      longitude: '121.56386864087',
+      manTime: 0,
+      name: '御桥校区周六早上9-11点',
+      nmDistance: '',
+      operator: 1,
+      periods: '40',
+      remark: '',
+      stDistance: '35 km',
+      status: '00',
+      teachingCycle: '40',
+      timeRange: '',
+      type: '',
+      updateTime: '2020-12-10 11:21:29',
+      venue: '小鹿人篮球学院（御桥校区）',
+      venueId: '9',
+    },
     schedule: [],
-    teacherData: {},
+    teacherData: {
+      createTime: '2020-09-21 12:01:52',
+      creator: 1,
+      delFlag: '0',
+      headimg:
+        'http://xlr.img.vbabc.com/redis/20201208/3eaab3519e824a2fa088653aa041a1da.jpg',
+      id: 10,
+      intro:
+        '朱峰，小鹿人篮球学院院长，毕业于南京体育学院，国家篮球二级运动员，国家二级篮球裁判，五年青少年篮球培训经验，执教经验丰富，对待学员认真负责，教学专业严谨。',
+      label: '专业，负责，耐心，经验丰富',
+      manTime: 0,
+      memberId: '1039',
+      name: '朱教练',
+      operator: 1,
+      sort: 3,
+      updateTime: '2020-12-08 15:37:50',
+      weight: '',
+    },
     recordList: [],
     titleOption: [
       {
@@ -284,10 +330,10 @@ wepy.page({
     // this.source = opt.source || 'list';
   },
   onShow() {
-    this.fetchInfo();
+    // this.fetchInfo();
   },
   onPullDownRefresh() {
-    this.fetchInfo();
+    // this.fetchInfo();
   },
   onShareAppMessage(e) {
     return {
@@ -458,7 +504,7 @@ wepy.page({
     text-align: center;
 
     border-radius: 10rpx;
-    box-shadow: 0 10rpx 10rpx rgba(0, 0, 0, .1);
+    box-shadow: 0 10rpx 10rpx rgba(0, 0, 0, 0.1);
     &__img {
       width: 155rpx;
       height: 155rpx;
@@ -479,7 +525,7 @@ wepy.page({
       display: -webkit-box;
       overflow: hidden;
 
-/* autoprefixer: ignore next */
+      /* autoprefixer: ignore next */
       -webkit-box-orient: vertical;
 
       margin-bottom: 24rpx;
@@ -554,7 +600,7 @@ wepy.page({
       display: -webkit-box;
       overflow: hidden;
 
-/* autoprefixer: ignore next */
+      /* autoprefixer: ignore next */
       -webkit-box-orient: vertical;
 
       min-height: 64rpx;
@@ -590,12 +636,12 @@ wepy.page({
   font-size: 36rpx;
   line-height: 90rpx;
 
-// left: 50%;
+  // left: 50%;
 
   width: 630rpx;
   height: 90rpx;
 
-// transform: translate(-50%, 0);
+  // transform: translate(-50%, 0);
 
   color: #fff;
   border-radius: 45rpx;
@@ -605,7 +651,6 @@ wepy.page({
     border: none;
   }
 }
-
 </style>
 
 <config>

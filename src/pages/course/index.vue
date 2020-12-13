@@ -70,7 +70,29 @@ wepy.page({
     value1: null,
     value2: '',
     value3: '',
-    list: [],
+    list: [
+      {
+        address: '浦东新区王桥路299号（烈火篮球公园）',
+        area: '310115',
+        campus: '6',
+        city: '310100',
+        createTime: '2020-09-18 16:25:10',
+        creator: 1,
+        delFlag: '0',
+        headimg:
+          'http://xlr.img.vbabc.com/redis/20201127/6873ad52af934c48bf5ba89452dae2a5.jpg',
+        id: 13,
+        intro: 'BasePark倍斯篮球公园',
+        locationLat: '31.207839154568',
+        locationLng: '121.68736983805',
+        name: '小鹿人篮球学院（川沙校区）',
+        operator: 0,
+        province: '310000',
+        remark: '',
+        status: '00',
+        updateTime: '2020-11-27 14:55:29',
+      },
+    ],
     searchStr: '',
   },
   computed: {
@@ -126,45 +148,69 @@ wepy.page({
     async fetchList() {
       this.isLoading = true;
 
-      let params = {
-        current: this.current,
-        size: this.size,
-        searchStr: this.searchStr,
-      };
+      // let params = {
+      //   current: this.current,
+      //   size: this.size,
+      //   searchStr: this.searchStr,
+      // };
 
-      if (this.area.code) {
-        params.province = this.area.code;
-      } else {
-        params = {
-          ...params,
-          ...this.location,
-        };
-      }
+      // if (this.area.code) {
+      //   params.province = this.area.code;
+      // } else {
+      //   params = {
+      //     ...params,
+      //     ...this.location,
+      //   };
+      // }
 
-      if (this.value1) {
-        params.range = this.value1;
-      }
+      // if (this.value1) {
+      //   params.range = this.value1;
+      // }
 
-      if (this.value2) {
-        params.venueId = this.value2;
-      }
+      // if (this.value2) {
+      //   params.venueId = this.value2;
+      // }
 
-      if (this.value3) {
-        params.desc = 'id';
-      }
+      // if (this.value3) {
+      //   params.desc = 'id';
+      // }
 
-      const {
-        data: { data: list, total },
-      } = await api.GET_INDEX_COURSES_LIST(params);
+      // const {
+      //   data: { data: list, total },
+      // } = await api.GET_INDEX_COURSES_LIST(params);
 
-      // console.log(data);
+      // // console.log(data);
+      let list = [
+        {
+          address: '浦东新区王桥路299号（烈火篮球公园）',
+          area: '310115',
+          campus: '6',
+          city: '310100',
+          createTime: '2020-09-18 16:25:10',
+          creator: 1,
+          delFlag: '0',
+          headimg:
+            'http://xlr.img.vbabc.com/redis/20201127/6873ad52af934c48bf5ba89452dae2a5.jpg',
+          id: 13,
+          intro: 'BasePark倍斯篮球公园',
+          locationLat: '31.207839154568',
+          locationLng: '121.68736983805',
+          name: '小鹿人篮球学院（川沙校区）',
+          operator: 0,
+          province: '310000',
+          remark: '',
+          status: '00',
+          updateTime: '2020-11-27 14:55:29',
+        },
+      ];
+
       this.list = this.list.concat(list);
 
       this.isLoading = false;
 
-      if (total <= this.current * this.size) {
-        this.canScroll = false;
-      }
+      // if (total <= this.current * this.size) {
+      //   this.canScroll = false;
+      // }
       // console.log(this.list);
     },
     // async getVenueList() {
@@ -242,12 +288,11 @@ page {
 .plate {
   padding: 0 30rpx;
 }
-
 </style>
 
 <config>
 {
-  navigationBarTitleText: '约课',
+  navigationBarTitleText: '发现',
   usingComponents: {
     search: '~@/components/search',
     loading: '~@/components/loading',

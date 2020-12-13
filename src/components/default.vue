@@ -11,7 +11,7 @@ import wepy from '@wepy/core';
 wepy.component({
   data: {
     icon: {
-      defaultBg: '/static/images/default_bg.png',
+      defaultBg: 'https://xlr.img.vbabc.com/system/cdn/default_bg.png',
     },
   },
 });
